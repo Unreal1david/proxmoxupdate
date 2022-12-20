@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Update all running operating systems within Proxmox LXC containers, including Alpine Linux
 
 # Get a list of all the containers
