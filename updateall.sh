@@ -2,6 +2,10 @@
 
 # Update all running operating systems within Proxmox LXC containers, including Alpine Linux
 
+# Update Proxmox itself
+apt update
+apt full-upgrade -y
+
 # Get a list of all the containers
 containers=$(pct list | grep running | awk '{print $1}')
 
@@ -20,6 +24,6 @@ do
     else
       # Update other operating systems (assume Debian-based)
       pct exec $container -- bash -c "apt update"
-      pct exec $container -- bash -c "apt upgrade -y"
+      pct exec $container -- bash -c "apt full-upgrade -y"
     fi
 done
